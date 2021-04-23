@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+    web:
+        build: .
+        image: myimg
+        volumes:
+            - ./:/app
+            - ./log:/var/log
+        ports:
+            - 10080:80
+        entrypoint: ["uwsgi", "--ini", "app.ini"]
